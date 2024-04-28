@@ -3,8 +3,8 @@ from random import randint
 
 class User:
     user_name = 'Степан'
-    email = f'stepan.shtokov_8_123@gmail.com'
-    password = f'q153698742Q'
+    email = 'stepan.shtokov_8_123@gmail.com'
+    password = 'q153698742Q'
 
 
 class RandomUser:

@@ -9,16 +9,11 @@ class MainPageLocators:
     login_account_but = (By.XPATH, ".//button[text() = 'Войти в аккаунт']")  # Кнопка "Войти в аккаунт" формы главной страницы
     constructor_but = (By.XPATH, ".//p[text() = 'Конструктор']")  # Кнопка "Конструктор" хедера главной страницы
     order_feed_but = (By.XPATH, ".//p[text() = 'Лента Заказов']")  # Кнопка "Лента Заказов" хедера главной страницы
-    buns_but = (By.XPATH, ".//span[text() = 'Булки']")  # Кнопка конструктора "Булки"
-    sauces_but = (By.XPATH, ".//span[text() = 'Соусы']")  # Кнопка конструктора "Соусы"
-    toppings_but = (By.XPATH, ".//span[text() = 'Начинки']")  # Кнопка конструктора "Начинки"
     place_order_but = (By.XPATH, ".//button[text() = 'Оформить заказ']")  # Кнопка "Оформить заказ" корзины
-    sauces_txt = (By.XPATH, ".//h2[text() = 'Соусы']")  # Текст "Соусы" конструктора
-    sauces_ul = (By.XPATH, "(.//ul[@class = 'BurgerIngredients_ingredients__list__2A-mT'])[2]")  # Ненумерованный список соусов в конструкторе
-    bun_txt = (By.XPATH, ".//h2[text() = 'Булки']")  # Текст "Булки" конструктора
-    bun_ul = (By.XPATH, "(.//ul[@class = 'BurgerIngredients_ingredients__list__2A-mT'])[1]")  # Ненумерованный список булок в конструкторе
-    topping_txt = (By.XPATH, ".//h2[text() = 'Начинки']")  # Текст "Начинки" конструктора
-    topping_ul = (By.XPATH, "(.//ul[@class = 'BurgerIngredients_ingredients__list__2A-mT'])[3]")  # Ненумерованный список начинок в конструкторе
+    sauces_by_span = ".//span[contains(text(),'Соусы')]"  # Список "Соусы" конструктора
+    bun_by_span = ".//span[contains(text(),'Булки')]"  # Список "Булки" конструктора
+    topping_by_span = ".//span[contains(text(),'Начинки')]"  # Список "Начинки" конструктора
+    active_tab_in_constructor = ".//div[contains(@class, 'current')]/span"  # Проверка активной вкладки конструктора
 
 
 class AuthPageLocators:
@@ -37,10 +32,10 @@ class AuthPageLocators:
 
 class RegistrationPageLocators:
     """Форма регистрации/логина"""
-    name_input = (By.XPATH, "(.//input[@name = 'name'])[1]")  # Поле ввода имени пользователя
-    email_input = (By.XPATH, "(.//input[@name = 'name'])[2]")  # Поле ввода E-mail пользователя
-    password_input = (By.XPATH, ".//input[@name = 'Пароль']")  # Поле ввода пароля пользователя
-    registration_but = (By.XPATH, ".//button[text() = 'Зарегистрироваться']")  # Кнопка "Зарегистрироваться   "
+    name_input = (By.XPATH, ".//label[text() = 'Имя']/following-sibling::input")  # Поле ввода имени пользователя
+    email_input = (By.XPATH, ".//label[text() = 'Email']/following-sibling::input")  # Поле ввода E-mail пользователя
+    password_input = (By.XPATH, ".//label[text() = 'Пароль']/following-sibling::input")  # Поле ввода пароля пользователя
+    registration_but = (By.XPATH, ".//button[text() = 'Зарегистрироваться']")  # Кнопка "Зарегистрироваться
     login_account_but = (By.XPATH, ".//a[text() = 'Войти']")  # Кнопка "Войти"
     constructor_but = (By.XPATH, ".//p[text() = 'Конструктор']")  # Кнопка "Конструктор" хедера
     order_feed_but = (By.XPATH, ".//p[text() = 'Лента Заказов']")  # Кнопка "Лента заказов" хедера
@@ -64,7 +59,7 @@ class RecoverPageLocators:
 class PersonalAreaLocators:
     """Форма ЛК"""
     profile_form = (By.XPATH, ".//div[@class = 'Account_account__vgk_w']")  # Форма ЛК
-    profile_but = (By.XPATH, ".//a[text() = 'Профиль']")  # Кнопка "Профиль" ЛК
+    profile_but = By.XPATH, './/a[text()="Профиль"]'  # Кнопка "Профиль" ЛК
     order_history_but = (By.XPATH, ".//a[text() = 'История заказов']")  # Кнопка "История заказов"
     exit_but = (By.XPATH, ".//button[text() = 'Выход']")  # Кнопка "Выход"
     save_but = (By.XPATH, ".//button[text() = 'Сохранить']")  # Кнопка "Сохранить"
