@@ -20,7 +20,7 @@ class TestPersonalAcc:
         """Проверка перехода из ЛК в конструктор по кнопке "Конструктор" """
         WebDriverWait(driver, 20).until(ec.visibility_of_element_located(MainPageLocators.personal_account_but))
         driver.find_element(*MainPageLocators.personal_account_but).click()
-        WebDriverWait(driver, 20).until(ec.visibility_of_element_located(PersonalAreaLocators.exit_but))
+        WebDriverWait(driver, 30).until(ec.visibility_of_element_located(PersonalAreaLocators.exit_but))
         driver.find_element(*PersonalAreaLocators.constructor_but).click()
         WebDriverWait(driver, 20).until(ec.visibility_of_element_located(MainPageLocators.place_order_but))
         order_button_main_page = driver.find_element(*MainPageLocators.place_order_but)
@@ -40,11 +40,11 @@ class TestPersonalAcc:
 
     def test_logout_from_personal_acc_success(self, driver, get_login_driver):
         """Проверка выхода из личного кабинета"""
-        WebDriverWait(driver, 15).until(ec.visibility_of_element_located(MainPageLocators.personal_account_but))
+        WebDriverWait(driver, 10).until(ec.visibility_of_element_located(MainPageLocators.personal_account_but))
         driver.find_element(*MainPageLocators.personal_account_but).click()
         WebDriverWait(driver, 10).until(ec.visibility_of_element_located(PersonalAreaLocators.exit_but))
         driver.find_element(*PersonalAreaLocators.exit_but).click()
-        WebDriverWait(driver, 15).until(ec.visibility_of_element_located(AuthPageLocators.login_account_but))
-        login_button = driver.find_element(*AuthPageLocators.login_account_but)
+        WebDriverWait(driver, 10).until(ec.visibility_of_element_located(AuthPageLocators.login_account_auth_form_but))
+        login_button = driver.find_element(*AuthPageLocators.login_account_auth_form_but)
 
         assert driver.current_url == URLS.AUTH_PAGE_URL and login_button.text == 'Войти'

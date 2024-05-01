@@ -16,8 +16,8 @@ class TestRegistrationPage:
         driver.find_element(*RegistrationPageLocators.email_input).send_keys(RandomUser.email)
         driver.find_element(*RegistrationPageLocators.password_input).send_keys(RandomUser.password)
         driver.find_element(*RegistrationPageLocators.registration_but).click()
-        WebDriverWait(driver, 20).until(ec.visibility_of_element_located(AuthPageLocators.login_account_but))
-        login_button_displayed = driver.find_element(*AuthPageLocators.login_account_but).is_displayed()
+        WebDriverWait(driver, 20).until(ec.visibility_of_element_located(AuthPageLocators.login_account_auth_form_but))
+        login_button_displayed = driver.find_element(*AuthPageLocators.login_account_auth_form_but).is_displayed()
 
         assert driver.current_url == URLS.AUTH_PAGE_URL and login_button_displayed
 
